@@ -1,0 +1,1544 @@
+{
+  "profiles": [
+    {
+      "profile_id": "profile_alex",
+      "display_name": "Alex"
+    },
+    {
+      "profile_id": "profile_mia",
+      "display_name": "Mia"
+    },
+    {
+      "profile_id": "profile_liam",
+      "display_name": "Liam"
+    }
+  ],
+  "rails_rows": [
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 2,
+      "show_id": "show_180",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 3,
+      "show_id": "show_82",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 4,
+      "show_id": "show_179",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 5,
+      "show_id": "show_2",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 6,
+      "show_id": "show_204",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 7,
+      "show_id": "show_206",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 8,
+      "show_id": "show_216",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 9,
+      "show_id": "show_40",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 10,
+      "show_id": "show_118",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 11,
+      "show_id": "show_166",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "trending",
+      "rank": 12,
+      "show_id": "show_106",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 1,
+      "show_id": "show_1",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 2,
+      "show_id": "show_10",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 3,
+      "show_id": "show_100",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 4,
+      "show_id": "show_101",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 5,
+      "show_id": "show_102",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 6,
+      "show_id": "show_103",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 7,
+      "show_id": "show_104",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 8,
+      "show_id": "show_105",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 9,
+      "show_id": "show_106",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 10,
+      "show_id": "show_107",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 11,
+      "show_id": "show_108",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "new_release",
+      "rank": 12,
+      "show_id": "show_109",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 1,
+      "show_id": "show_180",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 2,
+      "show_id": "show_82",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 3,
+      "show_id": "show_2",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 4,
+      "show_id": "show_204",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 5,
+      "show_id": "show_206",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 6,
+      "show_id": "show_216",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 7,
+      "show_id": "show_40",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 8,
+      "show_id": "show_166",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 9,
+      "show_id": "show_158",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 10,
+      "show_id": "show_61",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 11,
+      "show_id": "show_305",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "sci_fi",
+      "rank": 12,
+      "show_id": "show_64",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 2,
+      "show_id": "show_180",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 3,
+      "show_id": "show_82",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 4,
+      "show_id": "show_179",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 6,
+      "show_id": "show_166",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 7,
+      "show_id": "show_106",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 8,
+      "show_id": "show_251",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 9,
+      "show_id": "show_32",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 10,
+      "show_id": "show_158",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 11,
+      "show_id": "show_61",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "drama",
+      "rank": 12,
+      "show_id": "show_164",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 2,
+      "show_id": "show_180",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 3,
+      "show_id": "show_82",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 4,
+      "show_id": "show_179",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 5,
+      "show_id": "show_2",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 6,
+      "show_id": "show_204",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 7,
+      "show_id": "show_206",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 8,
+      "show_id": "show_118",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 9,
+      "show_id": "show_166",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 10,
+      "show_id": "show_106",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 11,
+      "show_id": "show_251",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_alex",
+      "rail_id": "binge",
+      "rank": 12,
+      "show_id": "show_32",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 6,
+      "show_id": "show_2",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 7,
+      "show_id": "show_204",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 8,
+      "show_id": "show_206",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 9,
+      "show_id": "show_216",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 10,
+      "show_id": "show_40",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 11,
+      "show_id": "show_106",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "trending",
+      "rank": 12,
+      "show_id": "show_166",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 1,
+      "show_id": "show_1",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 2,
+      "show_id": "show_10",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 3,
+      "show_id": "show_100",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 4,
+      "show_id": "show_101",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 5,
+      "show_id": "show_102",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 6,
+      "show_id": "show_103",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 7,
+      "show_id": "show_104",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 8,
+      "show_id": "show_105",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 9,
+      "show_id": "show_106",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 10,
+      "show_id": "show_107",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 11,
+      "show_id": "show_108",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "new_release",
+      "rank": 12,
+      "show_id": "show_109",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 1,
+      "show_id": "show_180",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 2,
+      "show_id": "show_82",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 3,
+      "show_id": "show_2",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 4,
+      "show_id": "show_204",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 5,
+      "show_id": "show_206",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 6,
+      "show_id": "show_216",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 7,
+      "show_id": "show_40",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 8,
+      "show_id": "show_166",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 9,
+      "show_id": "show_158",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 10,
+      "show_id": "show_61",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 11,
+      "show_id": "show_305",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "sci_fi",
+      "rank": 12,
+      "show_id": "show_64",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 6,
+      "show_id": "show_106",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 7,
+      "show_id": "show_166",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 8,
+      "show_id": "show_251",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 9,
+      "show_id": "show_32",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 10,
+      "show_id": "show_158",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 11,
+      "show_id": "show_164",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "drama",
+      "rank": 12,
+      "show_id": "show_29",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 6,
+      "show_id": "show_2",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 7,
+      "show_id": "show_204",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 8,
+      "show_id": "show_206",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 9,
+      "show_id": "show_106",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 10,
+      "show_id": "show_166",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 11,
+      "show_id": "show_251",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_mia",
+      "rail_id": "binge",
+      "rank": 12,
+      "show_id": "show_32",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 6,
+      "show_id": "show_2",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 7,
+      "show_id": "show_204",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 8,
+      "show_id": "show_206",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 9,
+      "show_id": "show_216",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 10,
+      "show_id": "show_40",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 11,
+      "show_id": "show_106",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "trending",
+      "rank": 12,
+      "show_id": "show_166",
+      "reason": "Matched rail tag trending"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 1,
+      "show_id": "show_1",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 2,
+      "show_id": "show_10",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 3,
+      "show_id": "show_100",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 4,
+      "show_id": "show_101",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 5,
+      "show_id": "show_102",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 6,
+      "show_id": "show_103",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 7,
+      "show_id": "show_104",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 8,
+      "show_id": "show_105",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 9,
+      "show_id": "show_106",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 10,
+      "show_id": "show_107",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 11,
+      "show_id": "show_108",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "new_release",
+      "rank": 12,
+      "show_id": "show_109",
+      "reason": "Matched rail tag new_release"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 1,
+      "show_id": "show_180",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 2,
+      "show_id": "show_82",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 3,
+      "show_id": "show_2",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 4,
+      "show_id": "show_204",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 5,
+      "show_id": "show_206",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 6,
+      "show_id": "show_216",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 7,
+      "show_id": "show_40",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 8,
+      "show_id": "show_166",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 9,
+      "show_id": "show_158",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 10,
+      "show_id": "show_61",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 11,
+      "show_id": "show_64",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "sci_fi",
+      "rank": 12,
+      "show_id": "show_305",
+      "reason": "Matched rail tag sci_fi"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 6,
+      "show_id": "show_106",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 7,
+      "show_id": "show_166",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 8,
+      "show_id": "show_251",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 9,
+      "show_id": "show_32",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 10,
+      "show_id": "show_158",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 11,
+      "show_id": "show_164",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "drama",
+      "rank": 12,
+      "show_id": "show_29",
+      "reason": "Matched rail tag drama"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 1,
+      "show_id": "show_169",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 2,
+      "show_id": "show_179",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 3,
+      "show_id": "show_180",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 4,
+      "show_id": "show_82",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 5,
+      "show_id": "show_118",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 6,
+      "show_id": "show_2",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 7,
+      "show_id": "show_204",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 8,
+      "show_id": "show_206",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 9,
+      "show_id": "show_106",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 10,
+      "show_id": "show_166",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 11,
+      "show_id": "show_251",
+      "reason": "Matched rail tag binge"
+    },
+    {
+      "profile_id": "profile_liam",
+      "rail_id": "binge",
+      "rank": 12,
+      "show_id": "show_32",
+      "reason": "Matched rail tag binge"
+    }
+  ],
+  "session_rows": [
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-17",
+      "event_ts": 1773766197990,
+      "event_id": "seed-profile_alex-0",
+      "show_id": "show_154",
+      "event_type": "progress",
+      "progress_seconds": 2658,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-17",
+      "event_ts": 1773762597990,
+      "event_id": "seed-profile_liam-0",
+      "show_id": "show_274",
+      "event_type": "progress",
+      "progress_seconds": 909,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-17",
+      "event_ts": 1773755397990,
+      "event_id": "seed-profile_mia-0",
+      "show_id": "show_15",
+      "event_type": "progress",
+      "progress_seconds": 2436,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-17",
+      "event_ts": 1773748197990,
+      "event_id": "seed-profile_alex-1",
+      "show_id": "show_11",
+      "event_type": "progress",
+      "progress_seconds": 362,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-17",
+      "event_ts": 1773737397990,
+      "event_id": "seed-profile_mia-1",
+      "show_id": "show_145",
+      "event_type": "progress",
+      "progress_seconds": 562,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-17",
+      "event_ts": 1773737397990,
+      "event_id": "seed-profile_liam-1",
+      "show_id": "show_18",
+      "event_type": "progress",
+      "progress_seconds": 1345,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-17",
+      "event_ts": 1773726597990,
+      "event_id": "seed-profile_alex-2",
+      "show_id": "show_231",
+      "event_type": "progress",
+      "progress_seconds": 1192,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-17",
+      "event_ts": 1773726597990,
+      "event_id": "seed-profile_liam-2",
+      "show_id": "show_277",
+      "event_type": "progress",
+      "progress_seconds": 3044,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-17",
+      "event_ts": 1773722997990,
+      "event_id": "seed-profile_mia-2",
+      "show_id": "show_281",
+      "event_type": "progress",
+      "progress_seconds": 2814,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-17",
+      "event_ts": 1773712197990,
+      "event_id": "seed-profile_alex-3",
+      "show_id": "show_217",
+      "event_type": "progress",
+      "progress_seconds": 2538,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-17",
+      "event_ts": 1773712197990,
+      "event_id": "seed-profile_liam-3",
+      "show_id": "show_27",
+      "event_type": "progress",
+      "progress_seconds": 1178,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-16",
+      "event_ts": 1773704997990,
+      "event_id": "seed-profile_mia-3",
+      "show_id": "show_147",
+      "event_type": "progress",
+      "progress_seconds": 2604,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-16",
+      "event_ts": 1773694197990,
+      "event_id": "seed-profile_mia-4",
+      "show_id": "show_271",
+      "event_type": "progress",
+      "progress_seconds": 427,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-16",
+      "event_ts": 1773686997990,
+      "event_id": "seed-profile_liam-4",
+      "show_id": "show_200",
+      "event_type": "progress",
+      "progress_seconds": 1883,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-16",
+      "event_ts": 1773683397990,
+      "event_id": "seed-profile_alex-4",
+      "show_id": "show_207",
+      "event_type": "progress",
+      "progress_seconds": 1142,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-16",
+      "event_ts": 1773676197990,
+      "event_id": "seed-profile_liam-5",
+      "show_id": "show_228",
+      "event_type": "progress",
+      "progress_seconds": 1104,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-16",
+      "event_ts": 1773672597990,
+      "event_id": "seed-profile_mia-5",
+      "show_id": "show_265",
+      "event_type": "progress",
+      "progress_seconds": 1425,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-16",
+      "event_ts": 1773668997990,
+      "event_id": "seed-profile_alex-5",
+      "show_id": "show_167",
+      "event_type": "progress",
+      "progress_seconds": 266,
+      "device_type": "web",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-16",
+      "event_ts": 1773654597990,
+      "event_id": "seed-profile_mia-6",
+      "show_id": "show_227",
+      "event_type": "progress",
+      "progress_seconds": 653,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-16",
+      "event_ts": 1773650997990,
+      "event_id": "seed-profile_liam-6",
+      "show_id": "show_134",
+      "event_type": "progress",
+      "progress_seconds": 1110,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-16",
+      "event_ts": 1773647397990,
+      "event_id": "seed-profile_alex-6",
+      "show_id": "show_15",
+      "event_type": "progress",
+      "progress_seconds": 1633,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_alex",
+      "event_day": "2026-03-16",
+      "event_ts": 1773636597990,
+      "event_id": "seed-profile_alex-7",
+      "show_id": "show_8",
+      "event_type": "progress",
+      "progress_seconds": 1121,
+      "device_type": "mobile",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_mia",
+      "event_day": "2026-03-16",
+      "event_ts": 1773632997990,
+      "event_id": "seed-profile_mia-7",
+      "show_id": "show_120",
+      "event_type": "progress",
+      "progress_seconds": 2097,
+      "device_type": "tv",
+      "locale": "en-US"
+    },
+    {
+      "profile_id": "profile_liam",
+      "event_day": "2026-03-16",
+      "event_ts": 1773629397990,
+      "event_id": "seed-profile_liam-7",
+      "show_id": "show_183",
+      "event_type": "progress",
+      "progress_seconds": 1860,
+      "device_type": "tv",
+      "locale": "en-US"
+    }
+  ]
+}
