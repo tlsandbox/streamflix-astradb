@@ -72,3 +72,15 @@ Then rerun:
 - semantic search returns results
 - click a search result to pin featured details
 - click `Watch`/`Watch Now` and refresh rails to see continue-watching updates
+- Admin -> `Jupyter Notebook` opens `notebook/streamflix_astra_workshop.ipynb`
+
+## 6) If Admin Jupyter Shows "Not Found"
+
+Your backend likely has stale routes from before the notebook launcher endpoint was added. Restart backend:
+
+```bash
+pkill -f "uvicorn backend.app.main:app" || true
+source .venv/bin/activate
+set -a && source .env && set +a
+python3 -m uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8010
+```

@@ -40,6 +40,20 @@ Use the exact commands in [QUICKSTART.md](./QUICKSTART.md).
 
 Key point for notebook users: start Jupyter from a shell that has already loaded `.env`.
 
+Admin `Jupyter Notebook` launches the fixed workshop notebook path:
+- `notebook/streamflix_astra_workshop.ipynb`
+
+## Backend Restart After Pulling Changes
+
+If Admin -> `Jupyter Notebook` returns `Not Found`, your backend is running an older route set. Restart backend with:
+
+```bash
+pkill -f "uvicorn backend.app.main:app" || true
+source .venv/bin/activate
+set -a && source .env && set +a
+python3 -m uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8010
+```
+
 ## Workshop Runbook
 
 - Instructor timeline: [WORKSHOP.md](./WORKSHOP.md)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
 import app.main as app_main
@@ -72,7 +73,21 @@ def test_admin_notebook_endpoint(monkeypatch) -> None:
     assert response.status_code == 200
     payload = response.json()
     assert payload["status"] == "ok"
-    assert payload["url"].startswith("http://localhost:8888/lab/tree/")
+    assert payload["url"].endswith("/lab/tree/notebook/streamflix_astra_workshop.ipynb")
+
+
+def test_admin_notebook_endpoint_returns_503_when_jupyter_missing(monkeypatch) -> None:
+    def fail_notebook(**_) -> str:
+        raise HTTPException(
+            status_code=503,
+            detail="Jupyter is not available in this Python environment. Install with `python3 -m pip install jupyterlab` and retry.",
+        )
+
+    monkeypatch.setattr(app_main, "_ensure_notebook_server", fail_notebook)
+    response = client.post("/api/admin/notebook")
+    assert response.status_code == 503
+    payload = response.json()
+    assert "jupyterlab" in payload["detail"].lower()
 
 
 def test_home_contract() -> None:

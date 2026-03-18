@@ -6,6 +6,8 @@ import socket
 import subprocess
 import sys
 import time
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 from astrapy.exceptions import DataAPIResponseException
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -15,6 +17,8 @@ from fastapi.responses import JSONResponse
 from .config import Settings, load_settings
 from .models import HomeResponse, RecommendationsResponse, SearchResponse, SessionEventRequest, SessionEventResponse
 from .repository import AstraRepository
+
+WORKSHOP_NOTEBOOK_RELATIVE_PATH = "notebook/streamflix_astra_workshop.ipynb"
 
 
 @lru_cache(maxsize=1)
@@ -72,7 +76,6 @@ def open_notebook() -> dict[str, str]:
     notebook_url = _ensure_notebook_server(
         host=settings.notebook_host,
         port=settings.notebook_port,
-        notebook_relative_path=settings.notebook_relative_path,
     )
     return {"status": "ok", "url": notebook_url}
 
@@ -139,14 +142,70 @@ def _is_port_open(host: str, port: int) -> bool:
         return sock.connect_ex((target_host, port)) == 0
 
 
-def _ensure_notebook_server(*, host: str, port: int, notebook_relative_path: str) -> str:
-    notebook_relative_path = notebook_relative_path.lstrip("/")
+def _jupyter_cli_available() -> bool:
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "jupyter", "--version"],
+            cwd=_repo_root(),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+    except OSError:
+        return False
+    return result.returncode == 0
+
+
+def _assert_notebook_url_resolves(url: str) -> None:
+    request = Request(url, headers={"User-Agent": "streamflix-workshop/1.0"})
+    try:
+        with urlopen(request, timeout=2):  # noqa: S310
+            return
+    except HTTPError as exc:
+        if exc.code == 404:
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Jupyter server is running, but workshop notebook path is not resolvable. "
+                    f"Expected file: {WORKSHOP_NOTEBOOK_RELATIVE_PATH}."
+                ),
+            ) from exc
+        raise HTTPException(
+            status_code=503,
+            detail=f"Jupyter server responded with HTTP {exc.code} while opening workshop notebook.",
+        ) from exc
+    except URLError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Jupyter server started, but notebook URL was unreachable from backend.",
+        ) from exc
+
+
+def _ensure_notebook_server(*, host: str, port: int) -> str:
+    notebook_relative_path = WORKSHOP_NOTEBOOK_RELATIVE_PATH
     public_host = _notebook_public_host(host)
     notebook_url = f"http://{public_host}:{port}/lab/tree/{notebook_relative_path}"
+    notebook_file = _repo_root() / notebook_relative_path
+    if not notebook_file.is_file():
+        raise HTTPException(
+            status_code=503,
+            detail=f"Workshop notebook not found at {notebook_relative_path}.",
+        )
+
     if _is_port_open(host, port):
+        _assert_notebook_url_resolves(notebook_url)
         return notebook_url
 
     root = _repo_root()
+    if not _jupyter_cli_available():
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Jupyter is not available in this Python environment. "
+                "Install with `python3 -m pip install jupyterlab` and retry."
+            ),
+        )
+
     command = [
         sys.executable,
         "-m",
@@ -170,6 +229,7 @@ def _ensure_notebook_server(*, host: str, port: int, notebook_relative_path: str
     deadline = time.time() + 8.0
     while time.time() < deadline:
         if _is_port_open(host, port):
+            _assert_notebook_url_resolves(notebook_url)
             return notebook_url
         time.sleep(0.25)
 

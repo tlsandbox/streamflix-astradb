@@ -15,7 +15,6 @@ class Settings:
     vector_model: str
     notebook_host: str
     notebook_port: int
-    notebook_relative_path: str
 
     @property
     def astra_configured(self) -> bool:
@@ -41,5 +40,4 @@ def load_settings() -> Settings:
         vector_model=os.getenv("ASTRA_VECTOR_MODEL", "NV-Embed-QA").strip(),
         notebook_host=os.getenv("NOTEBOOK_HOST", "127.0.0.1").strip(),
         notebook_port=_int_env("NOTEBOOK_PORT", 8888),
-        notebook_relative_path=os.getenv("NOTEBOOK_RELATIVE_PATH", "notebook/streamflix_astra_workshop.ipynb").strip(),
     )
