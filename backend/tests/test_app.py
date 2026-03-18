@@ -76,6 +76,14 @@ def test_admin_notebook_endpoint(monkeypatch) -> None:
     assert payload["url"].endswith("/lab/tree/notebook/streamflix_astra_workshop.ipynb")
 
 
+def test_build_notebook_relative_path_for_running_server() -> None:
+    notebook_abs = (app_main._repo_root() / "notebook/streamflix_astra_workshop.ipynb").resolve()
+    server = {"root_dir": str((app_main._repo_root() / "notebook").resolve()), "token": "abc123"}
+    relative_path, token = app_main._build_notebook_relative_path_for_server(notebook_abs, server)
+    assert relative_path == "streamflix_astra_workshop.ipynb"
+    assert token == "abc123"
+
+
 def test_admin_notebook_endpoint_returns_503_when_jupyter_missing(monkeypatch) -> None:
     def fail_notebook(**_) -> str:
         raise HTTPException(

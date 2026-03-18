@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from functools import lru_cache
+import json
 from pathlib import Path
 import socket
 import subprocess
 import sys
 import time
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 from astrapy.exceptions import DataAPIResponseException
@@ -142,58 +144,149 @@ def _is_port_open(host: str, port: int) -> bool:
         return sock.connect_ex((target_host, port)) == 0
 
 
+def _run_jupyter_cmd(args: list[str], *, capture_output: bool = False) -> subprocess.CompletedProcess | None:
+    candidate_prefixes = [
+        [sys.executable, "-m", "jupyter"],
+        ["jupyter"],
+    ]
+    for prefix in candidate_prefixes:
+        try:
+            if capture_output:
+                result = subprocess.run(
+                    prefix + args,
+                    cwd=_repo_root(),
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+            else:
+                result = subprocess.run(
+                    prefix + args,
+                    cwd=_repo_root(),
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                    check=False,
+                )
+            if result.returncode == 0:
+                return result
+        except OSError:
+            continue
+    return None
+
+
 def _jupyter_cli_available() -> bool:
-    try:
-        result = subprocess.run(
-            [sys.executable, "-m", "jupyter", "--version"],
-            cwd=_repo_root(),
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-        )
-    except OSError:
-        return False
-    return result.returncode == 0
+    result = _run_jupyter_cmd(["--version"])
+    return bool(result and result.returncode == 0)
 
 
-def _assert_notebook_url_resolves(url: str) -> None:
-    request = Request(url, headers={"User-Agent": "streamflix-workshop/1.0"})
+def _list_running_jupyter_servers() -> list[dict]:
+    if not _jupyter_cli_available():
+        return []
+    result = _run_jupyter_cmd(["server", "list", "--json"], capture_output=True)
+    if result is None:
+        return []
+    if result.returncode != 0:
+        return []
+
+    servers: list[dict] = []
+    for line in result.stdout.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            continue
+        try:
+            payload = json.loads(stripped)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(payload, dict):
+            servers.append(payload)
+    return servers
+
+
+def _discover_running_server(host: str, port: int) -> dict | None:
+    host_candidates = {host, _notebook_public_host(host), "127.0.0.1", "localhost", "::1", "0.0.0.0"}
+    for server in _list_running_jupyter_servers():
+        if int(server.get("port", -1)) != port:
+            continue
+        server_host = str(server.get("hostname") or "").strip()
+        if server_host in host_candidates or not server_host:
+            return server
+    return None
+
+
+def _build_notebook_relative_path_for_server(notebook_abs_path: Path, server: dict | None) -> tuple[str, str]:
+    if not server:
+        return WORKSHOP_NOTEBOOK_RELATIVE_PATH, ""
+
+    root_dir = Path(str(server.get("root_dir") or "")).expanduser().resolve()
+    notebook_abs_path = notebook_abs_path.resolve()
     try:
-        with urlopen(request, timeout=2):  # noqa: S310
+        relative_path = notebook_abs_path.relative_to(root_dir).as_posix()
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Jupyter is running on the configured port but not rooted to this workshop directory. "
+                "Stop the existing Jupyter on port 8888 and retry from StreamFlix Admin."
+            ),
+        ) from exc
+
+    token = str(server.get("token") or "")
+    return relative_path, token
+
+
+def _assert_notebook_contents_resolves(*, host: str, port: int, relative_path: str, token: str) -> None:
+    host_for_request = _notebook_public_host(host)
+    encoded_path = quote(relative_path, safe="/")
+    query = f"?{urlencode({'token': token})}" if token else ""
+    api_url = f"http://{host_for_request}:{port}/api/contents/{encoded_path}{query}"
+    request = Request(api_url, headers={"User-Agent": "streamflix-workshop/1.0"})
+    try:
+        with urlopen(request, timeout=3):  # noqa: S310
             return
     except HTTPError as exc:
         if exc.code == 404:
             raise HTTPException(
                 status_code=503,
                 detail=(
-                    "Jupyter server is running, but workshop notebook path is not resolvable. "
-                    f"Expected file: {WORKSHOP_NOTEBOOK_RELATIVE_PATH}."
+                    "Jupyter server is running, but workshop notebook file is not available under its root. "
+                    f"Expected notebook: {WORKSHOP_NOTEBOOK_RELATIVE_PATH}."
+                ),
+            ) from exc
+        if exc.code in {401, 403}:
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Jupyter server rejected backend access (auth/token mismatch). "
+                    "Stop the existing Jupyter on port 8888 and relaunch via StreamFlix Admin."
                 ),
             ) from exc
         raise HTTPException(
             status_code=503,
-            detail=f"Jupyter server responded with HTTP {exc.code} while opening workshop notebook.",
+            detail=f"Jupyter server responded with HTTP {exc.code} while resolving workshop notebook.",
         ) from exc
     except URLError as exc:
         raise HTTPException(
             status_code=503,
-            detail="Jupyter server started, but notebook URL was unreachable from backend.",
+            detail="Jupyter server started, but notebook API was unreachable from backend.",
         ) from exc
 
 
 def _ensure_notebook_server(*, host: str, port: int) -> str:
-    notebook_relative_path = WORKSHOP_NOTEBOOK_RELATIVE_PATH
     public_host = _notebook_public_host(host)
-    notebook_url = f"http://{public_host}:{port}/lab/tree/{notebook_relative_path}"
-    notebook_file = _repo_root() / notebook_relative_path
+    notebook_file = _repo_root() / WORKSHOP_NOTEBOOK_RELATIVE_PATH
     if not notebook_file.is_file():
         raise HTTPException(
             status_code=503,
-            detail=f"Workshop notebook not found at {notebook_relative_path}.",
+            detail=f"Workshop notebook not found at {WORKSHOP_NOTEBOOK_RELATIVE_PATH}.",
         )
 
     if _is_port_open(host, port):
-        _assert_notebook_url_resolves(notebook_url)
+        running_server = _discover_running_server(host, port)
+        relative_path, token = _build_notebook_relative_path_for_server(notebook_file, running_server)
+        _assert_notebook_contents_resolves(host=host, port=port, relative_path=relative_path, token=token)
+        notebook_url = f"http://{public_host}:{port}/lab/tree/{quote(relative_path, safe='/')}"
+        if token:
+            notebook_url = f"{notebook_url}?{urlencode({'token': token})}"
         return notebook_url
 
     root = _repo_root()
@@ -207,9 +300,6 @@ def _ensure_notebook_server(*, host: str, port: int) -> str:
         )
 
     command = [
-        sys.executable,
-        "-m",
-        "jupyter",
         "lab",
         "--no-browser",
         "--ServerApp.token=",
@@ -218,18 +308,41 @@ def _ensure_notebook_server(*, host: str, port: int) -> str:
         f"--ip={host}",
         f"--port={port}",
     ]
-    subprocess.Popen(
-        command,
-        cwd=root,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        start_new_session=True,
-    )
+
+    popen_variants = [
+        [sys.executable, "-m", "jupyter"] + command,
+        ["jupyter"] + command,
+    ]
+    launched = False
+    for cmd in popen_variants:
+        try:
+            subprocess.Popen(
+                cmd,
+                cwd=root,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                start_new_session=True,
+            )
+            launched = True
+            break
+        except OSError:
+            continue
+    if not launched:
+        raise HTTPException(
+            status_code=503,
+            detail="Unable to execute Jupyter launcher command on this system.",
+        )
 
     deadline = time.time() + 8.0
     while time.time() < deadline:
         if _is_port_open(host, port):
-            _assert_notebook_url_resolves(notebook_url)
+            _assert_notebook_contents_resolves(
+                host=host,
+                port=port,
+                relative_path=WORKSHOP_NOTEBOOK_RELATIVE_PATH,
+                token="",
+            )
+            notebook_url = f"http://{public_host}:{port}/lab/tree/{WORKSHOP_NOTEBOOK_RELATIVE_PATH}"
             return notebook_url
         time.sleep(0.25)
 
