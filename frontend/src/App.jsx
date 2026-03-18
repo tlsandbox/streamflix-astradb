@@ -102,7 +102,12 @@ export default function App() {
         window.open(payload.url, '_blank', 'noopener,noreferrer');
       }
     } catch (err) {
-      setError(err.message || 'Could not launch Jupyter notebook.');
+      const rawMessage = err?.message || '';
+      if (rawMessage === 'Not Found') {
+        setError('Notebook launcher endpoint is missing. Restart backend to load latest API routes.');
+      } else {
+        setError(rawMessage || 'Could not launch Jupyter notebook.');
+      }
     } finally {
       setLaunchingNotebook(false);
     }
