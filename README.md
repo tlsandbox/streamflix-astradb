@@ -40,10 +40,31 @@ Use the exact commands in [QUICKSTART.md](./QUICKSTART.md).
 
 Key point for notebook users: start Jupyter from a shell that has already loaded `.env`.
 
-Admin `Jupyter Notebook` launches the fixed workshop notebook path:
+Admin `Jupyter Notebook` launches the fixed workshop notebook file:
 - `notebook/streamflix_astra_workshop.ipynb`
 
-## Backend Restart After Pulling Changes
+## Admin Notebook Launcher
+
+`Admin -> Jupyter Notebook` calls `POST /api/admin/notebook`.
+
+The backend now:
+
+- always targets the workshop notebook file
+- auto-detects the running Jupyter server root on port `8888`
+- auto-includes Jupyter token when needed
+
+That means it works whether your Jupyter root is:
+
+- repository root (URL path includes `notebook/streamflix_astra_workshop.ipynb`)
+- `notebook/` directory (URL path includes `streamflix_astra_workshop.ipynb`)
+
+You can verify launcher output with:
+
+```bash
+curl -s -X POST http://localhost:8010/api/admin/notebook
+```
+
+## Backend Restart (If Route Is Stale)
 
 If Admin -> `Jupyter Notebook` returns `Not Found`, your backend is running an older route set. Restart backend with:
 
