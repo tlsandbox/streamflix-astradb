@@ -13,11 +13,21 @@ class Settings:
     cors_origins: str
     vector_provider: str
     vector_model: str
+    notebook_host: str
+    notebook_port: int
+    notebook_relative_path: str
 
     @property
     def astra_configured(self) -> bool:
         return bool(self.astra_db_api_endpoint and self.astra_db_application_token)
 
+
+def _int_env(name: str, default: int) -> int:
+    raw = os.getenv(name, str(default)).strip()
+    try:
+        return int(raw)
+    except ValueError:
+        return default
 
 
 def load_settings() -> Settings:
@@ -29,4 +39,7 @@ def load_settings() -> Settings:
         cors_origins=os.getenv("CORS_ORIGINS", "http://localhost:5174,http://127.0.0.1:5174").strip(),
         vector_provider=os.getenv("ASTRA_VECTOR_PROVIDER", "nvidia").strip(),
         vector_model=os.getenv("ASTRA_VECTOR_MODEL", "NV-Embed-QA").strip(),
+        notebook_host=os.getenv("NOTEBOOK_HOST", "127.0.0.1").strip(),
+        notebook_port=_int_env("NOTEBOOK_PORT", 8888),
+        notebook_relative_path=os.getenv("NOTEBOOK_RELATIVE_PATH", "notebook/streamflix_astra_workshop.ipynb").strip(),
     )

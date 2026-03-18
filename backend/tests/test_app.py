@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
+import app.main as app_main
 from app.main import app, get_repository
 from app.models import HomeResponse, Rail, RecommendationsResponse, SearchResponse, SessionEventRequest, SessionEventResponse, ShowCard
 
@@ -59,6 +60,19 @@ def test_health() -> None:
     assert response.status_code == 200
     payload = response.json()
     assert payload["status"] == "ok"
+
+
+def test_admin_notebook_endpoint(monkeypatch) -> None:
+    monkeypatch.setattr(
+        app_main,
+        "_ensure_notebook_server",
+        lambda **_: "http://localhost:8888/lab/tree/notebook/streamflix_astra_workshop.ipynb",
+    )
+    response = client.post("/api/admin/notebook")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "ok"
+    assert payload["url"].startswith("http://localhost:8888/lab/tree/")
 
 
 def test_home_contract() -> None:

@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import RailRow from './components/RailRow';
 import SearchPanel from './components/SearchPanel';
-import { DEFAULT_PROFILE, getHome, getRecommendations, postSessionEvent, searchShows } from './lib/api';
+import { DEFAULT_PROFILE, getHome, getRecommendations, openNotebook, postSessionEvent, searchShows } from './lib/api';
+
+const ADMIN_LINKS = {
+  astraPortal: import.meta.env.VITE_ASTRA_PORTAL_URL || 'https://astra.datastax.com/',
+  repo: import.meta.env.VITE_GITHUB_REPO_URL || 'https://github.com/tlsandbox/streamflix-astradb',
+};
 
 export default function App() {
   const profileId = DEFAULT_PROFILE;
@@ -12,6 +17,7 @@ export default function App() {
   const [selectedSearchItem, setSelectedSearchItem] = useState(null);
   const [loadingHome, setLoadingHome] = useState(true);
   const [loadingSearch, setLoadingSearch] = useState(false);
+  const [launchingNotebook, setLaunchingNotebook] = useState(false);
   const [error, setError] = useState('');
 
   const heroShow = useMemo(() => {
@@ -87,9 +93,36 @@ export default function App() {
     }
   }
 
+  async function handleOpenNotebook() {
+    setLaunchingNotebook(true);
+    setError('');
+    try {
+      const payload = await openNotebook();
+      if (payload?.url) {
+        window.open(payload.url, '_blank', 'noopener,noreferrer');
+      }
+    } catch (err) {
+      setError(err.message || 'Could not launch Jupyter notebook.');
+    } finally {
+      setLaunchingNotebook(false);
+    }
+  }
+
   return (
     <div className="app-shell">
       <header className="hero">
+        <div className="hero-admin-menu">
+          <details>
+            <summary>Admin</summary>
+            <div className="hero-admin-dropdown">
+              <a href={ADMIN_LINKS.astraPortal} rel="noreferrer" target="_blank">AstraDB Portal</a>
+              <button onClick={handleOpenNotebook} type="button" disabled={launchingNotebook}>
+                {launchingNotebook ? 'Launching Notebook...' : 'Jupyter Notebook'}
+              </button>
+              <a href={ADMIN_LINKS.repo} rel="noreferrer" target="_blank">GitHub Repository</a>
+            </div>
+          </details>
+        </div>
         <div className="hero-backdrop" style={{ backgroundImage: `url(${heroShow?.poster_url || ''})` }} />
         <div className="hero-content">
           <p className="eyebrow">Astra DB Workshop</p>

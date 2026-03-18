@@ -50,6 +50,82 @@ input {
   background: rgba(13, 17, 24, 0.8);
 }
 
+.hero-admin-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+}
+
+.hero-admin-menu details {
+  position: relative;
+}
+
+.hero-admin-menu summary {
+  list-style: none;
+  border: 1px solid rgba(190, 205, 235, 0.38);
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.82rem;
+  color: #dbe6ff;
+  background: rgba(10, 16, 26, 0.76);
+  cursor: pointer;
+  user-select: none;
+}
+
+.hero-admin-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.hero-admin-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 260px;
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid rgba(185, 202, 231, 0.32);
+  border-radius: 12px;
+  padding: 0.4rem;
+  background: rgba(9, 14, 22, 0.96);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero-admin-dropdown a {
+  text-decoration: none;
+  color: #d4def3;
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.84rem;
+}
+
+.hero-admin-dropdown button {
+  text-align: left;
+  border: 0;
+  width: 100%;
+  color: #d4def3;
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.84rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero-admin-dropdown a:hover {
+  background: rgba(134, 156, 194, 0.15);
+  color: #f3f7ff;
+}
+
+.hero-admin-dropdown button:hover:enabled {
+  background: rgba(134, 156, 194, 0.15);
+  color: #f3f7ff;
+}
+
+.hero-admin-dropdown button:disabled {
+  opacity: 0.68;
+  cursor: progress;
+}
+
 .hero-backdrop {
   position: absolute;
   inset: 0;
@@ -89,13 +165,17 @@ input {
 }
 
 .hero-cta {
-  border: 0;
+  border: 1px solid rgba(158, 176, 209, 0.46);
   margin-top: 1rem;
   padding: 0.75rem 1.2rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), #ff6b6b);
+  background: linear-gradient(90deg, rgba(86, 104, 133, 0.92), rgba(70, 88, 116, 0.92));
   color: #fff;
   cursor: pointer;
+}
+
+.hero-cta:hover {
+  background: linear-gradient(90deg, rgba(99, 117, 149, 0.94), rgba(78, 97, 126, 0.94));
 }
 
 main {
@@ -373,6 +453,11 @@ main {
 
   .hero-content {
     padding: 1.2rem;
+  }
+
+  .hero-admin-menu {
+    top: 0.8rem;
+    right: 0.8rem;
   }
 
   .search-featured {

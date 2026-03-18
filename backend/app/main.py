@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
+import socket
+import subprocess
+import sys
+import time
 
 from astrapy.exceptions import DataAPIResponseException
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -61,6 +66,17 @@ def health(repo: AstraRepository = Depends(get_repository)) -> dict[str, object]
     }
 
 
+@app.post("/api/admin/notebook")
+def open_notebook() -> dict[str, str]:
+    settings = get_settings()
+    notebook_url = _ensure_notebook_server(
+        host=settings.notebook_host,
+        port=settings.notebook_port,
+        notebook_relative_path=settings.notebook_relative_path,
+    )
+    return {"status": "ok", "url": notebook_url}
+
+
 @app.get("/api/home", response_model=HomeResponse)
 def get_home(
     profile_id: str = Query(default=get_settings().default_profile_id),
@@ -104,3 +120,63 @@ def _ensure_configured(repo: AstraRepository) -> None:
             status_code=503,
             detail="Astra DB environment variables are missing. Set ASTRA_DB_API_ENDPOINT and ASTRA_DB_APPLICATION_TOKEN.",
         )
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def _notebook_public_host(host: str) -> str:
+    if host in {"127.0.0.1", "0.0.0.0"}:
+        return "localhost"
+    return host
+
+
+def _is_port_open(host: str, port: int) -> bool:
+    target_host = "127.0.0.1" if host == "0.0.0.0" else host
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.25)
+        return sock.connect_ex((target_host, port)) == 0
+
+
+def _ensure_notebook_server(*, host: str, port: int, notebook_relative_path: str) -> str:
+    notebook_relative_path = notebook_relative_path.lstrip("/")
+    public_host = _notebook_public_host(host)
+    notebook_url = f"http://{public_host}:{port}/lab/tree/{notebook_relative_path}"
+    if _is_port_open(host, port):
+        return notebook_url
+
+    root = _repo_root()
+    command = [
+        sys.executable,
+        "-m",
+        "jupyter",
+        "lab",
+        "--no-browser",
+        "--ServerApp.token=",
+        "--ServerApp.password=",
+        f"--ServerApp.root_dir={root}",
+        f"--ip={host}",
+        f"--port={port}",
+    ]
+    subprocess.Popen(
+        command,
+        cwd=root,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        start_new_session=True,
+    )
+
+    deadline = time.time() + 8.0
+    while time.time() < deadline:
+        if _is_port_open(host, port):
+            return notebook_url
+        time.sleep(0.25)
+
+    raise HTTPException(
+        status_code=503,
+        detail=(
+            "Unable to start Jupyter server automatically. "
+            "Install jupyterlab and run: set -a && source .env && set +a && jupyter lab notebook/streamflix_astra_workshop.ipynb"
+        ),
+    )

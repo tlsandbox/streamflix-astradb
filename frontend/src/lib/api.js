@@ -39,4 +39,11 @@ export async function postSessionEvent(payload) {
   return parseResponse(response);
 }
 
+export async function openNotebook() {
+  const response = await fetch(`${API_BASE_URL}/api/admin/notebook`, {
+    method: 'POST',
+  });
+  return parseResponse(response);
+}
+
 export { DEFAULT_PROFILE };
