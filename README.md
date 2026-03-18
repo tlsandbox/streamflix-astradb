@@ -92,5 +92,3 @@ npm run test:e2e
 
 - TV metadata and images source: [TVMaze API](https://www.tvmaze.com/api)
 - Optional enrichment source for offline snapshot generation: [TMDB API](https://developer.themoviedb.org/)
-
-This project is Netflix-inspired in layout style only, and does not use Netflix trademarks or proprietary assets.
