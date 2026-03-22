@@ -553,15 +553,3 @@ npm run test:e2e
 - No CI pipeline files (e.g., `.github/workflows`) are present in tracked files.
 - Current testing appears manually triggered in local/dev workflows.
 
----
-
-## Coverage Note (file analysis scope)
-This document was produced after reviewing the tracked project artifacts across:
-- docs (`README.md`, `QUICKSTART.md`, `WORKSHOP.md`, previous generated docs)
-- backend source + tests
-- frontend source + tests + package manifests
-- scripts
-- notebook structure/cells
-- data snapshot/schema files
-- environment and devcontainer config
-
